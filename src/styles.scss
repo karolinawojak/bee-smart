@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+/**global variables**/
+$bg-color: #efe5b0;
+
+/**reset**/
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p,
+a, img, ol, ul, li,
+form, label, table, tbody, tfoot, thead, tr, th, td,
+article, aside, footer, header, nav, section {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+}
+
+body {
+  margin: 0 auto;
+  text-align: center;
+  background-color: $bg-color;
+}
