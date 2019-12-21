@@ -1,0 +1,36 @@
+$main-color: #91b38e;
+$alert-color: #a40000;
+$font-size: 16px;
+
+h1 {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.alerts {
+  margin: 50px auto;
+}
+
+.alert-list {
+  width: 70%;
+  background-color: $main-color;
+  padding: 15px 0;
+  margin: 3px auto;
+}
+
+.alert-date{
+  display: inline;
+  margin-right: 10px;
+}
+
+.alert-info {
+  font-size: $font-size+3;
+  display: inline;
+  color: $alert-color;
+  font-weight: bold;
+}
+
+.alert-value{
+  display: inline;
+}
