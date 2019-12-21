@@ -4,10 +4,11 @@ $banner-secondary-font-family: "Charm", Book Antiqua, Palatino,
 $nav-link-padding: 10px;
 $nav-link-margin: 10px;
 $nav-link-border-radius: 5px;
+$header-height: 110px;
 
 header {
 	background-color: $main-color;
-	height: 110px;
+	height: $header-height;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
