@@ -1,17 +1,15 @@
 <article class="stats-container">
   <h1>Najnowsze statystyki</h1>
-  <section class="stats">
-    <div class="hives">
-      <ul class="hive-list" *ngFor="let hive of beehives">
-        <li>{{ hive.name }}</li>
-      </ul>
-    </div>
-    <div class="data" *ngFor="let stat of statistics | slice:0:1">
-      <p><span>Czas: </span>{{ stat.date | date:'short'}}</p>
-      <p><span>Temperatura: </span>{{ stat.temperature }}</p>
-      <p><span>Wilogtność: </span>{{ stat. humidity }}</p>
-      <p><span>Akustyka: </span>{{ stat. acoustics }}</p>
-      <p><span>Dwutlenek węgla: </span>{{ stat.carbonDioxide }}</p>
-    </div>
+  <section class="stats" *ngFor="let hive of beehives">
+      <div class="hive-name">
+        {{ hive.name }}
+      </div>
+      <div class="hive-data">
+        <p><span>Czas: </span>{{ hive.data.date | date:'short' }}</p>
+        <p><span>Temperatura: </span>{{ hive.data.temperature }}</p>
+        <p><span>Wilogtność: </span>{{ hive.data.humidity }}</p>
+        <p><span>Akustyka: </span>{{ hive.data.acoustics }}</p>
+        <p><span>Dwutlenek węgla: </span>{{ hive.data.carbonDioxide }}</p>
+      </div>
   </section>
 </article>

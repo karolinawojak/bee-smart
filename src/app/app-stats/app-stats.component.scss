@@ -22,18 +22,22 @@ ul {
   display: flex;
 }
 
+.stats:not(:last-child){
+  border-bottom: 1px darken($main-color, 25%) solid;
+}
+
 .hives {
   padding: 15px 0;
   margin: auto;
 }
 
-.hive-list {
-  padding: 10px 0;
+.hive-name {
   font-size: $font-size+4;
   font-weight: bold;
+  margin: auto;
 }
 
-.data {
+.hive-data {
   margin: auto;
 
   p {
