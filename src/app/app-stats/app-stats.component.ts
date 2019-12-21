@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Hive } from '../hive';
-import { Data } from '../data';
 
 @Component({
   selector: 'app-stats',
