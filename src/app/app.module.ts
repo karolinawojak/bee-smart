@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { AppMainComponent } from './app-main/app-main.component';
 import { AppLastComponent } from './app-last/app-last.component';
+import { AppAlertsComponent } from './app-alerts/app-alerts.component';
+
 import localePl from '@angular/common/locales/pl';
 import { registerLocaleData } from '@angular/common';
 
@@ -17,7 +19,8 @@ registerLocaleData(localePl);
     AppComponent,
     AppHeaderComponent,
     AppMainComponent,
-    AppLastComponent
+    AppLastComponent,
+    AppAlertsComponent
   ],
   imports: [
     BrowserModule,
