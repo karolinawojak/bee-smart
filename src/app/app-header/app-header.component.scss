@@ -1,0 +1,63 @@
+$main-color: #ff9900;
+$banner-secondary-font-family: "Charm", Book Antiqua, Palatino,
+  Palatino Linotype, Palatino LT STD, Georgia, serif;
+$nav-link-padding: 10px;
+$nav-link-margin: 10px;
+$nav-link-border-radius: 5px;
+
+header {
+	background-color: $main-color;
+	height: 110px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	width: 100%;
+  z-index: 100;
+
+	div {
+		padding-left: 30px;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+
+		span {
+			padding-left: 10px;
+			color: darken($main-color, 33%);
+			font-family: $banner-secondary-font-family;
+			font-size: 28px;
+			letter-spacing: 2px;
+			font-weight: bold;
+		}
+	}
+
+	nav {
+		padding-right: 10px;
+
+		ul {
+			list-style-type: none;
+
+			li {
+				float: left;
+
+				a {
+					display: inline-block;
+					text-decoration: none;
+					text-align: center;
+					color: lighten($main-color, 50%);
+
+					&:hover {
+						background-color: lighten($main-color, 9%);
+					}
+				}
+			}
+		}
+	}
+}
+
+.nav-link {
+	padding: $nav-link-padding;
+	margin: $nav-link-margin;
+	border-radius: $nav-link-border-radius;
+}
