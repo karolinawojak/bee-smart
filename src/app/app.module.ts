@@ -5,10 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AppHeaderComponent } from './app-header/app-header.component';
-import { AppMainComponent } from './app-home/app-main/app-main.component';
-import { AppLastComponent } from './app-home/app-last/app-last.component';
-import { AppAlertsComponent } from './app-home/app-alerts/app-alerts.component';
-import { AppStatsComponent } from './app-home/app-stats/app-stats.component';
+import { HomeMainComponent } from './app-home/home-main/home-main.component';
+import { AppLastComponent } from './app-home/home-last/home-last.component';
+import { AppAlertsComponent } from './app-home/home-alerts/home-alerts.component';
+import { AppStatsComponent } from './app-home/home-stats/home-stats.component';
+
+import { TodayMainComponent } from './app-today/today-main/today-main.component';
+
+import { OverallMainComponent } from './app-overall/overall-main/overall-main.component';
+
+import { AlertsMainComponent } from './app-alerts/alerts-main/alerts-main.component';
+
+import { PersonalMainComponent } from './app-personal/personal-main/personal-main.component';
 
 import localePl from '@angular/common/locales/pl';
 import { registerLocaleData } from '@angular/common';
@@ -19,10 +27,14 @@ registerLocaleData(localePl);
   declarations: [
     AppComponent,
     AppHeaderComponent,
-    AppMainComponent,
+    HomeMainComponent,
     AppLastComponent,
     AppAlertsComponent,
-    AppStatsComponent
+    AppStatsComponent,
+    TodayMainComponent,
+    OverallMainComponent,
+    AlertsMainComponent,
+    PersonalMainComponent
   ],
   imports: [
     BrowserModule,

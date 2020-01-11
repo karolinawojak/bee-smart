@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Hive } from '../../hive';
 
 @Component({
-  selector: 'app-stats',
-  templateUrl: './app-stats.component.html',
-  styleUrls: ['./app-stats.component.scss']
+  selector: 'app-home-stats',
+  templateUrl: './home-stats.component.html',
+  styleUrls: ['./home-stats.component.scss']
 })
 
 export class AppStatsComponent implements OnInit {
