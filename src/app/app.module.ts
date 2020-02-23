@@ -15,6 +15,7 @@ import { TodayMainComponent } from './app-today/today-main/today-main.component'
 import { OverallMainComponent } from './app-overall/overall-main/overall-main.component';
 
 import { AlertsMainComponent } from './app-alerts/alerts-main/alerts-main.component';
+import { AlertsListComponent } from './app-alerts/alerts-list/alerts-list.component';
 
 import { PersonalMainComponent } from './app-personal/personal-main/personal-main.component';
 
@@ -34,7 +35,8 @@ registerLocaleData(localePl);
     TodayMainComponent,
     OverallMainComponent,
     AlertsMainComponent,
-    PersonalMainComponent
+    AlertsListComponent,
+    PersonalMainComponent,
   ],
   imports: [
     BrowserModule,
