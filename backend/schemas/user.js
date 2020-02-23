@@ -6,7 +6,6 @@ const userSchema = mongoose.Schema({
   last_login: Date,
   hives: [ {
     _id: { type: String, required: true },
-    symbol: { type: Mixed, default: null },
     first_reading: Date
    } ]
 });
