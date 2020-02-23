@@ -20,6 +20,7 @@ import { AlertsListComponent } from './app-alerts/alerts-list/alerts-list.compon
 import { PersonalMainComponent } from './app-personal/personal-main/personal-main.component';
 import { PersonalVisitComponent } from './app-personal/personal-visit/personal-visit.component';
 import { PersonalCredentialsComponent } from './app-personal/personal-credentials/personal-credentials.component';
+import { PersonalAddComponent } from './app-personal/personal-add/personal-add.component';
 
 import localePl from '@angular/common/locales/pl';
 import { registerLocaleData } from '@angular/common';
@@ -41,6 +42,7 @@ registerLocaleData(localePl);
     PersonalMainComponent,
     PersonalVisitComponent,
     PersonalCredentialsComponent,
+    PersonalAddComponent,
   ],
   imports: [
     BrowserModule,
