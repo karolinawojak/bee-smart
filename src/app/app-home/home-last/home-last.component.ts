@@ -19,7 +19,7 @@ export class AppLastComponent implements OnInit {
   ngOnInit() {}
 
   lastVisit(): any {
-    this.lastVisitDate = this._lastVisit.getLastVisit()[0];
+    this.lastVisitDate = this._lastVisit.getVisit()[0];
 
   }
 }

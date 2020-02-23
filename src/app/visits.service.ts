@@ -10,7 +10,7 @@ export class VisitsService {
 
   constructor() { }
 
-  getLastVisit() {
+  getVisit() {
     return [ this.lastVisitDate, this.firstVisitDate ];
   }
 }
