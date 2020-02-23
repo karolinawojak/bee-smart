@@ -1,6 +1,7 @@
 <article class="alerts">
   <h1>Najnowsze alerty</h1>
   <section class="alert-list" *ngFor="let alert of alertList | slice:0:3">
+    <p class="alert-hive"> Ul {{ alert.hive}} </p>
     <p class="alert-date">{{ alert.date | date:'short' }}</p>
     <p class="alert-info">{{ alert.content}}</p>
     <p class="alert-value"> [ {{ alert.value}} ]</p>

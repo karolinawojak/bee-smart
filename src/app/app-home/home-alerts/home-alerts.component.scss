@@ -25,12 +25,19 @@ h1 {
 }
 
 .alert-info {
-  font-size: $font-size+3;
   display: inline;
   color: $alert-color;
+  font-size: $font-size+3;
   font-weight: bold;
 }
 
 .alert-value{
   display: inline;
+}
+
+.alert-hive{
+  font-size: $font-size+3;
+  font-weight: bold;
+  float: left;
+  margin-left: 20px;
 }
