@@ -1,6 +1,27 @@
 $content-height: 180px;
+$border-color: #91b38e;
 
 main {
   margin-top: $content-height;
+}
+
+article {
+  width: 60%;
+  border: 2px solid $border-color;
+  border-radius: 25px;
+  margin: 40px auto;
+  padding: 40px;
+}
+
+.header {
+  font-size: 25px;
+  font-weight: bold;
+  display:inline-block;
+}
+
+.date {
+  font-size: 20px;
+  padding: 15px 0;
+  margin: 3px auto;
 }
 

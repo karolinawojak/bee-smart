@@ -4,7 +4,7 @@ import { VisitsService } from '../../visits.service';
 @Component({
   selector: 'app-personal-visit',
   templateUrl: './personal-visit.component.html',
-  styleUrls: ['./personal-visit.component.scss']
+  styleUrls: ['../personal-main/personal-main.component.scss']
 })
 
 export class PersonalVisitComponent implements OnInit {
