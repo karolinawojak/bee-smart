@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LastVisitService } from './last-visit.service';
+import { VisitsService } from './visits.service';
 
-describe('LastVisitService', () => {
+describe('VisitsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: LastVisitService = TestBed.get(LastVisitService);
+    const service: VisitsService = TestBed.get(VisitsService);
     expect(service).toBeTruthy();
   });
 });
