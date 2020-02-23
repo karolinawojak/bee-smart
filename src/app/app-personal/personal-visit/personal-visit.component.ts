@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VisitsService } from '../../visits.service';
+import { PersonalService } from '../../personal.service';
 
 @Component({
   selector: 'app-personal-visit',
@@ -12,7 +12,7 @@ export class PersonalVisitComponent implements OnInit {
   firstVisitDate: Date;
 
   // tslint:disable-next-line: variable-name
-  constructor(private _firstVisit: VisitsService) {
+  constructor(private _firstVisit: PersonalService) {
     this.firstVisit();
   }
 
