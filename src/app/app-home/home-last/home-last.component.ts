@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LastVisitService } from '../../last-visit.service';
 
 @Component({
   selector: 'app-home-last',
@@ -8,8 +9,17 @@ import { Component, OnInit } from '@angular/core';
 
 export class AppLastComponent implements OnInit {
 
-  lastEntry = new Date(2019, 11, 17, 3, 24, 0);
-  constructor() { }
+  lastVisitDate: Date;
 
-  ngOnInit() { }
+  // tslint:disable-next-line: variable-name
+  constructor(private _lastVisit: LastVisitService) {
+    this.lastVisit();
+  }
+
+  ngOnInit() {}
+
+  lastVisit(): any {
+    this.lastVisitDate = this._lastVisit.getLastVisit();
+
+  }
 }
