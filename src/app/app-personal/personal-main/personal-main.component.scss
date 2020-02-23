@@ -1,16 +1,40 @@
 $content-height: 180px;
-$border-color: #91b38e;
+$main-color: #91b38e;
 
 main {
   margin-top: $content-height;
 }
 
 article {
-  width: 60%;
-  border: 2px solid $border-color;
+  width: 50%;
+  border: 2px solid $main-color;
   border-radius: 25px;
   margin: 40px auto;
   padding: 40px;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+input[type=password] {
+  display: block;
+  margin: 10px auto;
+  width: 300px;
+}
+
+input[type=submit] {
+  background-color: lighten($main-color, 20%);
+  border: 1px solid $main-color;
+  padding: 10px 30px;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+input[type=submit]:hover {
+  background-color: $main-color;
 }
 
 .header {
