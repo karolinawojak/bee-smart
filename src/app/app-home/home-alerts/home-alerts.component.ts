@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Alert } from '../../alert';
+import { AlertsService } from '../../alerts.service';
 
 @Component({
   selector: 'app-home-alerts',
@@ -8,14 +9,17 @@ import { Alert } from '../../alert';
 })
 
 export class AppAlertsComponent implements OnInit {
-  alerts: Alert[] = [
-    { date: new Date(2019, 11, 18, 18, 43, 2), content: 'Akustyka za niska', value: 0 },
-    { date: new Date(2019, 11, 18, 13, 55, 33), content: 'Temperatura za wysoka', value: 0 },
-    { date: new Date(2019, 11, 16, 3, 15, 44), content: 'Temperatura za wysoka', value: 0 },
-    { date: new Date(2019, 11, 15, 22, 10, 12), content: 'Temperatura za niska', value: 0 }
-  ];
 
-   constructor() { }
+  alertList: Alert[];
+
+  // tslint:disable-next-line: variable-name
+  constructor(private _alerts: AlertsService) {
+    this.alerts();
+  }
 
   ngOnInit() { }
+
+  alerts(): any {
+    this.alertList = this._alerts.getAlerts();
+  }
 }
