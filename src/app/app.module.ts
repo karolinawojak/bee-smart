@@ -18,6 +18,7 @@ import { AlertsMainComponent } from './app-alerts/alerts-main/alerts-main.compon
 import { AlertsListComponent } from './app-alerts/alerts-list/alerts-list.component';
 
 import { PersonalMainComponent } from './app-personal/personal-main/personal-main.component';
+import { PersonalVisitComponent } from './app-personal/personal-visit/personal-visit.component';
 
 import localePl from '@angular/common/locales/pl';
 import { registerLocaleData } from '@angular/common';
@@ -37,6 +38,7 @@ registerLocaleData(localePl);
     AlertsMainComponent,
     AlertsListComponent,
     PersonalMainComponent,
+    PersonalVisitComponent,
   ],
   imports: [
     BrowserModule,
