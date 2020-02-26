@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { AppAlertsComponent } from './app-home/home-alerts/home-alerts.component
 import { AppStatsComponent } from './app-home/home-stats/home-stats.component';
 
 import { TodayMainComponent } from './app-today/today-main/today-main.component';
+import { TodayStatsComponent } from './app-today/today-stats/today-stats.component';
 
 import { OverallMainComponent } from './app-overall/overall-main/overall-main.component';
 
@@ -43,10 +45,12 @@ registerLocaleData(localePl);
     PersonalVisitComponent,
     PersonalCredentialsComponent,
     PersonalAddComponent,
+    TodayStatsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ChartsModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pl'}
