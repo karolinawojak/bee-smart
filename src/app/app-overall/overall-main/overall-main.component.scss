@@ -1,5 +1,69 @@
 $content-height: 180px;
+$main-color: #91b38e;
+$secondary-color: #f2f2f2;
+$font-size: 16px;
 
 main {
   margin-top: $content-height;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.stats-container {
+  margin: 50px auto;
+  width: 70%;
+}
+
+.stats{
+  border: 2px solid $main-color;
+  border-radius: 25px;
+  background-color: $secondary-color;
+  margin: 40px auto;
+  padding: 40px;
+  display: flex;
+}
+
+.stats:not(:last-child){
+  border-bottom: 1px darken($main-color, 25%) solid;
+}
+
+.hives {
+  padding: 15px 0;
+  margin: auto;
+}
+
+.hive-name {
+  font-size: $font-size+25;
+  font-weight: bold;
+  margin: auto;
+  flex: 25%;
+}
+
+.info {
+  flex: 75%;
+}
+
+.summaric-data {
+  display: flex;
+  margin-top: 40px;
+}
+
+.stat-name {
+  font-size: $font-size+6;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hive-data {
+  margin: auto;
+
+  p {
+    padding: 2px 0;
+
+    span {
+      font-weight: bold;
+    }
+  }
 }

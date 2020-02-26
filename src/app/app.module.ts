@@ -15,6 +15,7 @@ import { TodayMainComponent } from './app-today/today-main/today-main.component'
 import { TodayStatsComponent } from './app-today/today-stats/today-stats.component';
 
 import { OverallMainComponent } from './app-overall/overall-main/overall-main.component';
+import { OverallStatsComponent } from './app-overall/overall-stats/overall-stats.component';
 
 import { AlertsMainComponent } from './app-alerts/alerts-main/alerts-main.component';
 import { AlertsListComponent } from './app-alerts/alerts-list/alerts-list.component';
@@ -46,6 +47,7 @@ registerLocaleData(localePl);
     PersonalCredentialsComponent,
     PersonalAddComponent,
     TodayStatsComponent,
+    OverallStatsComponent,
   ],
   imports: [
     BrowserModule,
