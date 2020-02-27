@@ -49,3 +49,11 @@ input[type=submit]:hover {
   margin: 3px auto;
 }
 
+.hive-info:not(:first-child) {
+  padding-top: 100px;
+}
+
+.hive-header {
+  font-size: 20px;
+  margin-bottom: 20px;
+}

@@ -24,6 +24,7 @@ import { PersonalMainComponent } from './app-personal/personal-main/personal-mai
 import { PersonalVisitComponent } from './app-personal/personal-visit/personal-visit.component';
 import { PersonalCredentialsComponent } from './app-personal/personal-credentials/personal-credentials.component';
 import { PersonalAddComponent } from './app-personal/personal-add/personal-add.component';
+import { PersonalHivesComponent } from './app-personal/personal-hives/personal-hives.component';
 
 import localePl from '@angular/common/locales/pl';
 import { registerLocaleData } from '@angular/common';
@@ -48,6 +49,7 @@ registerLocaleData(localePl);
     PersonalAddComponent,
     TodayStatsComponent,
     OverallStatsComponent,
+    PersonalHivesComponent,
   ],
   imports: [
     BrowserModule,

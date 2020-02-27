@@ -2,24 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { PersonalService } from '../../personal.service';
 
 @Component({
-  selector: 'app-personal-visit',
-  templateUrl: './personal-visit.component.html',
+  selector: 'app-personal-hives',
+  templateUrl: './personal-hives.component.html',
   styleUrls: ['../personal-main/personal-main.component.scss']
 })
 
-export class PersonalVisitComponent implements OnInit {
+export class PersonalHivesComponent implements OnInit {
 
-  firstVisitDate: Date;
+  hiveList: Array<{id: string, date: Date}>;
 
   // tslint:disable-next-line: variable-name
-  constructor(private _firstVisit: PersonalService) {
+  constructor(private _hives: PersonalService) {
     this.firstVisit();
   }
 
   ngOnInit() {}
 
   firstVisit(): any {
-    this.firstVisitDate = this._firstVisit.getVisit().first;
-
+    this.hiveList = this._hives.getVisit().hives;
   }
 }
