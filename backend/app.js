@@ -4,6 +4,13 @@ const mongoose = require('mongoose');
 const expressApp = expressJS();
 
 //uses a middleware on an incoming request
+expressApp.use((request, response, next) => {
+  response.setHeader("Access-Control-Allow-Origin", "*");
+  response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  next();
+});
+
 expressApp.use('/api/personal', (request, response, next) => {
   const personalData = [
     { id: 'f4wfr',

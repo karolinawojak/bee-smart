@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HiveData } from '../../hiveData.model';
 import { MainStatsService } from '../../main-stats.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home-stats',
@@ -11,15 +12,15 @@ import { MainStatsService } from '../../main-stats.service';
 export class AppStatsComponent implements OnInit {
 
   statList: HiveData[];
+  private statSubscription: Subscription;
 
-  // tslint:disable-next-line: variable-name
-  constructor(private _stats: MainStatsService) {
-    this.stats();
-  }
+  constructor(public statsService: MainStatsService) {}
 
-  ngOnInit() { }
-
-  stats(): any {
-    this.statList = this._stats.getStats();
+  ngOnInit() {
+    this.statsService.getStats();
+    this.statSubscription = this.statsService.statsUpdateListener()
+      .subscribe((stats: HiveData[]) => {
+        this.statList = stats;
+      });
   }
 }

@@ -1,31 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HiveData } from './hiveData.model';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainStatsService {
 
-  private statList: HiveData[] = [
-    { userID: 'f4wfr',
-    hiveID: 'g4ssxt',
-    timestamp: new Date(2019, 11, 18, 18, 30, 0),
-    temperature: 37.8,
-    humidity: 70,
-    acoustics: 60.1,
-    carbonDioxide: 0.01},
-    { userID: 'f4wfr',
-    hiveID: '2f45us',
-    timestamp: new Date(2019, 11, 18, 18, 30, 0),
-    temperature: 37.9,
-    humidity: 68,
-    acoustics: 58.4,
-    carbonDioxide: 0.01}
-  ];
+  private statList: HiveData[] = [];
+  private statsUpdated = new Subject<HiveData[]>();
 
-  constructor() { }
+  // tslint:disable-next-line: variable-name
+  constructor(private _http: HttpClient) { }
 
-  getStats(): HiveData[] {
-    return this.statList;
+  getStats() {
+    this._http.get<HiveData[]>('http://localhost:3000/api/stats')
+      .subscribe((hiveData) => {
+        this.statList = hiveData;
+        this.statsUpdated.next([...this.statList]);
+      });
+  }
+
+  statsUpdateListener() {
+    return this.statsUpdated.asObservable();
   }
 }
