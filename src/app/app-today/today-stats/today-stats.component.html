@@ -1,7 +1,7 @@
 <article class="stats-container">
   <section class="stats" *ngFor="let hive of statList">
       <div class="hive-name">
-        {{ hive.name }}
+        {{ hive.hiveID }}
       </div>
       <div class="info">
         <div class="chart">
@@ -16,29 +16,29 @@
         <div class="summaric-data">
           <div class="hive-data">
             <p class="stat-name">Temperatura</p>
-            <p><span>Maksymalna: </span>{{ hive.data.temperature }}</p>
-            <p><span>Minimalna: </span>{{ hive.data.temperature }}</p>
+            <p><span>Maksymalna: </span>{{ hive.temperature }}</p>
+            <p><span>Minimalna: </span>{{ hive.temperature }}</p>
           </div>
           <div class="chart">
           </div>
           <div class="hive-data">
             <p class="stat-name">Wilgotność</p>
-            <p><span>Maksymalna: </span>{{ hive.data.humidity }}</p>
-            <p><span>Minimalna: </span>{{ hive.data.humidity }}</p>
+            <p><span>Maksymalna: </span>{{ hive.humidity }}</p>
+            <p><span>Minimalna: </span>{{ hive.humidity }}</p>
           </div>
           <div class="chart">
           </div>
           <div class="hive-data">
             <p class="stat-name">Akustyka</p>
-            <p><span>Maksymalna: </span>{{ hive.data.acoustics }}</p>
-            <p><span>Minimalna: </span>{{ hive.data.acoustics }}</p>
+            <p><span>Maksymalna: </span>{{ hive.acoustics }}</p>
+            <p><span>Minimalna: </span>{{ hive.acoustics }}</p>
           </div>
           <div class="chart">
           </div>
           <div class="hive-data">
             <p class="stat-name">Dwutlenek węgla</p>
-            <p><span>Maksymalna: </span>{{ hive.data.carbonDioxide }}</p>
-            <p><span>Minimalna: </span>{{ hive.data.carbonDioxide }}</p>
+            <p><span>Maksymalna: </span>{{ hive.carbonDioxide }}</p>
+            <p><span>Minimalna: </span>{{ hive.carbonDioxide }}</p>
           </div>
         </div>
       </div>

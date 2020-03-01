@@ -3,7 +3,7 @@ const expressApp = require('./app');
 
 //making sure the received port is a valid number
 const assignPort = receivedValue => {
-  var port = parseInt(receivedValue);
+  var port = parseInt(receivedValue, 10);
 
   if(isNaN(port)) {
     return receivedValue;
@@ -13,7 +13,7 @@ const assignPort = receivedValue => {
     return port;
   }
 
-  return port;
+  return false;
 };
 
 const onError = receivedError => {

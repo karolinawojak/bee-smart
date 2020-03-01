@@ -1,7 +1,7 @@
 <article>
   <h2>Lista uli</h2>
   <span class="hive-info" *ngFor="let hive of hiveList">
-    <p class="hive-header">Ul {{ hive.id }}</p>
-    <p>Monitorowany od: {{ hive.date | date:'short' }}</p>
+    <p class="hive-header">Nazwa ula: {{ hive.name }}</p>
+    <p>Monitorowany od: {{ hive.firstReading | date:'short' }}</p>
   </span>
 </article>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonalService } from '../../personal.service';
+import { Hive } from '../../hive.model';
 
 @Component({
   selector: 'app-personal-hives',
@@ -9,7 +10,7 @@ import { PersonalService } from '../../personal.service';
 
 export class PersonalHivesComponent implements OnInit {
 
-  hiveList: Array<{id: string, date: Date}>;
+  hiveList: Hive[];
 
   // tslint:disable-next-line: variable-name
   constructor(private _hives: PersonalService) {
@@ -19,6 +20,6 @@ export class PersonalHivesComponent implements OnInit {
   ngOnInit() {}
 
   firstVisit(): any {
-    this.hiveList = this._hives.getVisit().hives;
+    this.hiveList = this._hives.getPersonalData()[0].hives;
   }
 }

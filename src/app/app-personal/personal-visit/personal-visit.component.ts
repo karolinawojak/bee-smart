@@ -19,7 +19,7 @@ export class PersonalVisitComponent implements OnInit {
   ngOnInit() {}
 
   firstVisit(): any {
-    this.firstVisitDate = this._firstVisit.getVisit().first;
+    this.firstVisitDate = this._firstVisit.getPersonalData()[0].firstVisit;
 
   }
 }

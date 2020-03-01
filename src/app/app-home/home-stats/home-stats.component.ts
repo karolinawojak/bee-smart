@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hive } from '../../hive';
+import { HiveData } from '../../hiveData.model';
 import { MainStatsService } from '../../main-stats.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { MainStatsService } from '../../main-stats.service';
 
 export class AppStatsComponent implements OnInit {
 
-  statList: Hive[];
+  statList: HiveData[];
 
   // tslint:disable-next-line: variable-name
   constructor(private _stats: MainStatsService) {
