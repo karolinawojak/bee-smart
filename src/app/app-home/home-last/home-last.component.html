@@ -1,2 +1,2 @@
 <h1>Ostatnie wejście</h1>
-<span class="date"> {{ lastVisitDate | date:'short' }}</span>
+<span class="date" *ngFor="let user of userData"> {{ user.lastVisit | date:'short' }}</span>

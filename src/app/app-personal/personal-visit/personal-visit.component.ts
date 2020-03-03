@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../user.model';
 import { PersonalService } from '../../personal.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-personal-visit',
@@ -9,17 +11,16 @@ import { PersonalService } from '../../personal.service';
 
 export class PersonalVisitComponent implements OnInit {
 
-  firstVisitDate: Date;
+  userData: User[];
+  private statSubscription: Subscription;
 
-  // tslint:disable-next-line: variable-name
-  constructor(private _firstVisit: PersonalService) {
-    this.firstVisit();
-  }
+  constructor(public statsService: PersonalService) {}
 
-  ngOnInit() {}
-
-  firstVisit(): any {
-    this.firstVisitDate = this._firstVisit.getPersonalData()[0].firstVisit;
-
+  ngOnInit() {
+    this.statsService.getPersonalData();
+    this.statSubscription = this.statsService.personalStatsUpdateListener()
+      .subscribe((data: User[]) => {
+        this.userData = data;
+      });
   }
 }

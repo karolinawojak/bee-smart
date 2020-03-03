@@ -1,4 +1,4 @@
 <article>
   <span class="header">Pierwsze wejście: </span>
-  <span class="date"> {{ firstVisitDate | date:'short' }}</span>
+  <span class="date" *ngFor="let user of userData"> {{ user.firstVisit | date:'short' }}</span>
 </article>

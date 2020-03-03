@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HiveData } from '../../hiveData.model';
 import { MainStatsService } from '../../main-stats.service';
 import { ChartsModule } from 'ng2-charts';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-overall-stats',
@@ -12,6 +13,7 @@ import { ChartsModule } from 'ng2-charts';
 export class OverallStatsComponent implements OnInit {
 
   statList: HiveData[];
+  private statSubscription: Subscription;
 
   public lineChartOptions = {
     scaleShowVerticalLines: true,
@@ -33,13 +35,13 @@ export class OverallStatsComponent implements OnInit {
   ];
 
   // tslint:disable-next-line: variable-name
-  constructor(private _stats: MainStatsService) {
-    this.stats();
-  }
+  constructor(public statsService: MainStatsService) {}
 
-  ngOnInit() {}
-
-  stats(): any {
-    this.statList = this._stats.getStats();
+  ngOnInit() {
+    this.statsService.getStats();
+    this.statSubscription = this.statsService.statsUpdateListener()
+      .subscribe((stats: HiveData[]) => {
+        this.statList = stats;
+      });
   }
 }

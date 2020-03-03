@@ -30,19 +30,37 @@ expressApp.use('/api/stats', (request, response, next) => {
       userID: 'f4wfr',
       hiveID: 'g4ssxt',
       timestamp: new Date(2019, 11, 18, 18, 30, 0),
-      temperature: 37.8,
-      humidity: 70,
+      temperature: 35,
+      humidity: 40,
       acoustics: 60.1,
-      carbonDioxide: 0.01
+      carbonDioxide: 800
     },
     {
       userID: 'f4wfr',
       hiveID: '2f45us',
       timestamp: new Date(2019, 11, 18, 18, 30, 0),
-      temperature: 37.9,
-      humidity: 68,
+      temperature: 35.9,
+      humidity: 40,
       acoustics: 58.4,
-      carbonDioxide: 0.01
+      carbonDioxide: 810
+    },
+    {
+      userID: 'f4wfr',
+      hiveID: 'g4ssxt',
+      timestamp: new Date(2019, 11, 18, 19, 30, 0),
+      temperature: 35,
+      humidity: 45,
+      acoustics: 60,
+      carbonDioxide: 805
+    },
+    {
+      userID: 'f4wfr',
+      hiveID: '2f45us',
+      timestamp: new Date(2019, 11, 18, 19, 30, 0),
+      temperature: 37.7,
+      humidity: 39.5,
+      acoustics: 58.4,
+      carbonDioxide: 812
     },
   ];
   response.status(200).json(statsData);

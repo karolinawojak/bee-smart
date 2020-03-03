@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonalService } from '../../personal.service';
+import { User } from '../../user.model';
 import { Hive } from '../../hive.model';
+import { PersonalService } from '../../personal.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-personal-hives',
@@ -10,16 +12,16 @@ import { Hive } from '../../hive.model';
 
 export class PersonalHivesComponent implements OnInit {
 
-  hiveList: Hive[];
+  userData: User[];
+  private statSubscription: Subscription;
 
-  // tslint:disable-next-line: variable-name
-  constructor(private _hives: PersonalService) {
-    this.firstVisit();
-  }
+  constructor(public statsService: PersonalService) {}
 
-  ngOnInit() {}
-
-  firstVisit(): any {
-    this.hiveList = this._hives.getPersonalData()[0].hives;
+  ngOnInit() {
+    this.statsService.getPersonalData();
+    this.statSubscription = this.statsService.personalStatsUpdateListener()
+      .subscribe((data: User[]) => {
+        this.userData = data;
+      });
   }
 }
