@@ -20,7 +20,7 @@ export class AppStatsComponent implements OnInit {
     this.statsService.getStats();
     this.statSubscription = this.statsService.statsUpdateListener()
       .subscribe((stats: HiveData[]) => {
-        this.statList = stats;
+        this.statList = stats.slice(-2);
       });
   }
 }

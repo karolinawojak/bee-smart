@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Alert } from './alert';
+import { Alert } from './alert.model';
+import { HiveData } from './hiveData.model';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
