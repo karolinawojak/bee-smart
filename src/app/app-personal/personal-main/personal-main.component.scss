@@ -1,5 +1,6 @@
 $content-height: 180px;
 $main-color: #91b38e;
+$secondary-color: #f2f2f2;
 
 main {
   margin-top: $content-height;
@@ -9,6 +10,7 @@ article {
   width: 50%;
   border: 2px solid $main-color;
   border-radius: 25px;
+  background-color: $secondary-color;
   margin: 40px auto;
   padding: 40px;
 }

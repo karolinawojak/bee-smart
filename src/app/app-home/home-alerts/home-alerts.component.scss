@@ -1,5 +1,6 @@
 $main-color: #91b38e;
 $alert-color: #a40000;
+$secondary-color: #f2f2f2;
 $font-size: 16px;
 
 h1 {
@@ -18,10 +19,14 @@ h1 {
 
 .alert-list {
   width: 70%;
-  background-color: $main-color;
+  background-color: $secondary-color;
   padding: 15px 0;
   margin: 3px auto;
+  border: 2px solid $main-color;
+  border-radius: 25px;
 }
+
+
 
 .alert-date{
   display: inline;
