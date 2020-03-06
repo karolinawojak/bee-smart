@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Alert } from '../../alert.model';
 import { AlertsService } from '../../alerts.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home-alerts',
@@ -11,15 +12,15 @@ import { AlertsService } from '../../alerts.service';
 export class AppAlertsComponent implements OnInit {
 
   alertList: Alert[];
+  private alertsSubscription: Subscription;
 
-  // tslint:disable-next-line: variable-name
-  constructor(private _alerts: AlertsService) {
-    this.alerts();
-  }
+  constructor(public alertsService: AlertsService) {}
 
-  ngOnInit() { }
-
-  alerts(): any {
-    this.alertList = this._alerts.getAlerts();
+  ngOnInit() {
+    this.alertsService.getAlerts();
+    this.alertsSubscription = this.alertsService.alertsUpdateListener()
+      .subscribe((alerts: Alert[]) => {
+        this.alertList = alerts;
+      });
   }
 }

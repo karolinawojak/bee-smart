@@ -2,7 +2,7 @@
 <p class="info">Archiwum pokazuje ostatnie 10 alertów</p>
 <article class="alerts">
   <section class="alert-list" *ngFor="let alert of alertList | slice:0:10">
-    <p class="alert-hive"> Ul {{ alert.hive}} </p>
+    <p class="alert-hive"> {{ alert.hive}} </p>
     <p class="alert-date">{{ alert.date | date:'short' }}</p>
     <p class="alert-info">{{ alert.content}}</p>
     <p class="alert-value"> [ {{ alert.value}} ]</p>

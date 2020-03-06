@@ -9,24 +9,62 @@ import { Subject } from 'rxjs';
 })
 export class AlertsService {
 
-  private alertList: Alert[] = [
-    { date: new Date(2019, 11, 18, 18, 43, 2), content: 'Akustyka za niska', value: 0, hive: '2' },
-    { date: new Date(2019, 11, 18, 13, 55, 33), content: 'Temperatura za wysoka', value: 0, hive: '2' },
-    { date: new Date(2019, 11, 16, 3, 15, 44), content: 'Temperatura za wysoka', value: 0, hive: '2' },
-    { date: new Date(2019, 11, 15, 22, 10, 12), content: 'Temperatura za niska', value: 0, hive: '2' },
-    { date: new Date(2019, 11, 15, 22, 0, 12), content: 'Temperatura za niska', value: 0, hive: '2' },
-    { date: new Date(2019, 11, 15, 21, 50, 12), content: 'Temperatura za niska', value: 0, hive: '2' },
-    { date: new Date(2019, 11, 11, 12, 30, 12), content: 'Akustyka za niska', value: 0, hive: '2' },
-    { date: new Date(2019, 10, 3, 5, 50, 12), content: 'Akustyka za wysoka', value: 0, hive: '2' },
-    { date: new Date(2019, 9, 28, 13, 10, 12), content: 'Akustyka za niska', value: 0, hive: '2' },
-    { date: new Date(2019, 9, 28, 13, 0, 12), content: 'Akustyka za niska', value: 0, hive: '2' },
-    { date: new Date(2019, 9, 28, 12, 50, 12), content: 'Akustyka za niska', value: 0, hive: '2' },
-    { date: new Date(2019, 9, 15, 22, 10, 12), content: 'Temperatura za niska', value: 0, hive: '2' }
-  ];
+  private statList: HiveData[] = [];
+  private alertList: Alert[] = [];
+  private alertsUpdated = new Subject<Alert[]>();
 
-  constructor() { }
+  // tslint:disable-next-line: variable-name
+  constructor(private _http: HttpClient) { }
 
-  getAlerts(): Alert[] {
-    return this.alertList;
+  getAlerts() {
+    let date: Date;
+    let content: string;
+    let value: number;
+    let hive: string;
+
+    this._http.get<HiveData[]>('http://localhost:3000/api/stats')
+      .subscribe((hiveData) => {
+        this.statList = hiveData;
+        // tslint:disable-next-line: prefer-for-of
+        for (let i = 0; i < this.statList.length; i++) {
+          date = this.statList[i].timestamp;
+          hive = this.statList[i].hiveID;
+
+          value = this.statList[i].temperature;
+          if (value < 35) {
+            content = 'Temperatura za niska';
+            this.alertList.unshift({date, content, value, hive});
+          } else if (this.statList[i].temperature > 35) {
+            content = 'Temperatura za wysoka';
+            this.alertList.unshift({date, content, value, hive});
+          }
+
+          value = this.statList[i].humidity;
+          if (value < 40) {
+            content = 'Wilogtność za niska';
+            this.alertList.unshift({date, content, value, hive});
+          } else if (this.statList[i].humidity > 40) {
+            content = 'Wilgotność za wysoka';
+            this.alertList.unshift({date, content, value, hive});
+          }
+
+          value = this.statList[i].carbonDioxide;
+          if (value < 600) {
+            content = 'Dwutlenek węgla za niski';
+            this.alertList.unshift({date, content, value, hive});
+          }
+
+          value = this.statList[i].acoustics;
+          if (value > 65) {
+            content = 'Akustyka za wysoka';
+            this.alertList.unshift({date, content, value, hive});
+          }
+        }
+        this.alertsUpdated.next([...this.alertList]);
+      });
+  }
+
+  alertsUpdateListener() {
+    return this.alertsUpdated.asObservable();
   }
 }
