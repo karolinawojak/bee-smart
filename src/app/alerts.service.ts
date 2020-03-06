@@ -18,6 +18,7 @@ export class AlertsService {
 
   getAlerts() {
     let date: Date;
+    let month: number;
     let content: string;
     let value: number;
     let hive: string;
@@ -25,9 +26,11 @@ export class AlertsService {
     this._http.get<HiveData[]>('http://localhost:3000/api/stats')
       .subscribe((hiveData) => {
         this.statList = hiveData;
+
         // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < this.statList.length; i++) {
-          date = this.statList[i].timestamp;
+          date = new Date(this.statList[i].timestamp);
+          month = date.getTime();
           hive = this.statList[i].hiveID;
 
           value = this.statList[i].temperature;
@@ -37,6 +40,7 @@ export class AlertsService {
           } else if (this.statList[i].temperature > 35) {
             content = 'Temperatura za wysoka';
             this.alertList.unshift({date, content, value, hive});
+            console.log(month);
           }
 
           value = this.statList[i].humidity;

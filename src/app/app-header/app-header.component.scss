@@ -1,10 +1,10 @@
-$main-color: #ff9900;
-$banner-secondary-font-family: "Charm", Book Antiqua, Palatino,
-  Palatino Linotype, Palatino LT STD, Georgia, serif;
+$main-color: desaturate(#ffd93d, 20);
+$header-color: #6b4701;
+$link-color: #985b10;
 $nav-link-padding: 10px;
 $nav-link-margin: 10px;
 $nav-link-border-radius: 5px;
-$header-height: 110px;
+$header-height: 120px;
 
 header {
 	background-color: $main-color;
@@ -25,8 +25,7 @@ header {
 
 		span {
 			padding-left: 10px;
-			color: darken($main-color, 33%);
-			font-family: $banner-secondary-font-family;
+			color: $header-color;
 			font-size: 28px;
 			letter-spacing: 2px;
 			font-weight: bold;
@@ -46,10 +45,9 @@ header {
 					display: inline-block;
 					text-decoration: none;
 					text-align: center;
-					color: lighten($main-color, 50%);
 
 					&:hover {
-						background-color: lighten($main-color, 9%);
+						background-color: darken($main-color, 15%);
 					}
 				}
 			}
@@ -60,5 +58,7 @@ header {
 .nav-link {
 	padding: $nav-link-padding;
 	margin: $nav-link-margin;
-	border-radius: $nav-link-border-radius;
+  border-radius: $nav-link-border-radius;
+  color: lighten($link-color, 5%);
+  font-size: 22px;
 }

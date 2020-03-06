@@ -1,5 +1,7 @@
 /**global variables**/
-$bg-color: #efe5b0;
+$bg-color: #ffe994;
+$text-color: #424242;
+$font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 $header-height: 110px;
 
 /**reset**/
@@ -11,7 +13,9 @@ article, aside, footer, header, nav, section {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+  font-size: 100%;
+  font-family: $font;
+  color: $text-color;
 }
 
 body {

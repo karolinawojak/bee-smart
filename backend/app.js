@@ -14,11 +14,11 @@ expressApp.use((request, response, next) => {
 expressApp.use('/api/personal', (request, response, next) => {
   const personalData = [
     { id: 'f4wfr',
-    firstVisit: new Date(2019, 3, 5, 15, 35, 0),
-    lastVisit: new Date(2019, 7, 10, 3, 24, 0),
+    firstVisit: new Date('2019-04-09T18:04'),
+    lastVisit: new Date('2019-06-11T14:23'),
     hives: [
-      { hiveID: 'g4ssxt', name: 'Ul1', firstReading: new Date(2019, 11, 18, 18, 30, 0) },
-      { hiveID: '2f45us', name: 'Ul2', firstReading: new Date(2019, 7, 10, 3, 24, 0) }
+      { hiveID: 'g4ssxt', firstReading: new Date('2019-04-09T18:04') },
+      { hiveID: '2f45us', firstReading: new Date('2019-05-27T11:43') }
     ]}
   ];
   response.status(200).json(personalData);
@@ -29,7 +29,7 @@ expressApp.use('/api/stats', (request, response, next) => {
     {
       userID: 'f4wfr',
       hiveID: 'g4ssxt',
-      timestamp: new Date(2019, 11, 18, 18, 30, 0),
+      timestamp: new Date('2019-11-11T16:50'),
       temperature: 35,
       humidity: 40,
       acoustics: 60.1,
@@ -38,7 +38,7 @@ expressApp.use('/api/stats', (request, response, next) => {
     {
       userID: 'f4wfr',
       hiveID: '2f45us',
-      timestamp: new Date(2019, 11, 18, 18, 30, 0),
+      timestamp: new Date('2019-11-11T16:50'),
       temperature: 35.9,
       humidity: 40,
       acoustics: 58.4,
@@ -47,7 +47,7 @@ expressApp.use('/api/stats', (request, response, next) => {
     {
       userID: 'f4wfr',
       hiveID: 'g4ssxt',
-      timestamp: new Date(2019, 11, 18, 19, 30, 0),
+      timestamp: new Date('2019-11-11T17:00'),
       temperature: 35,
       humidity: 45,
       acoustics: 60,
@@ -56,7 +56,7 @@ expressApp.use('/api/stats', (request, response, next) => {
     {
       userID: 'f4wfr',
       hiveID: '2f45us',
-      timestamp: new Date(2019, 11, 18, 19, 30, 0),
+      timestamp: new Date('2019-11-11T17:00'),
       temperature: 37.7,
       humidity: 39.5,
       acoustics: 58.4,

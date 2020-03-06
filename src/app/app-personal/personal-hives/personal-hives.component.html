@@ -2,8 +2,8 @@
   <h2>Lista uli</h2>
   <span class="hive-info" *ngFor="let user of userData">
     <span *ngFor="let hive of user.hives">
-      <p class="hive-header">Nazwa ula: {{ hive.name }}</p>
-      <p>Monitorowany od: {{ hive.firstReading | date:'short' }}</p>
+      <p class="hive-header">Kod ula: {{ hive.hiveID }}</p>
+      <p class="hive-date">Monitorowany od: {{ hive.firstReading | date:'short' }}</p>
     </span>
     </span>
 </article>
