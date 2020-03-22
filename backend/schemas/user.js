@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
   first_login: Date,
   last_login: Date,
   hives: [ {
-    _id: { type: String, required: true },
+    hiveID: { type: String, required: true },
     first_reading: Date
    } ]
 });

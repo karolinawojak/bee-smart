@@ -25,12 +25,15 @@ export class AlertsService {
 
     this._http.get<HiveData[]>('http://localhost:3000/api/stats')
       .subscribe((hiveData) => {
+        this.statList.length = 0;
         this.statList = hiveData;
 
         // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < this.statList.length; i++) {
           date = new Date(this.statList[i].timestamp);
           month = date.getTime();
+          console.log('Month: ');
+          console.log(month);
           hive = this.statList[i].hiveID;
 
           value = this.statList[i].temperature;

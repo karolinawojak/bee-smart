@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Alert } from '../../alert.model';
 import { AlertsService } from '../../alerts.service';
 import { Subscription } from 'rxjs';
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['../../app-home/home-alerts/home-alerts.component.scss']
 })
 
-export class AlertsListComponent implements OnInit {
+export class AlertsListComponent implements OnInit  {
 
   alertList: Alert[];
   private alertsSubscription: Subscription;
