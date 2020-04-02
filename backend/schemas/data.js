@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const dataSchema = mongoose.Schema({
-  user_id: String,
-  hive_id: String,
+  userID: String,
+  hiveID: String,
   timestamp: Date,
   temperature: Number,
   humidity: Number,
-  carbon_dioxide: Number,
-  acoustics: Number
+  acoustics: Number,
+  carbonDioxide: Number
 });
 
-module.exports = mongoose.model('data', dataSchema);
+module.exports = mongoose.model('log', dataSchema);
