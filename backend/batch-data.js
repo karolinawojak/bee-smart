@@ -22,12 +22,12 @@ mongoose.connect("mongodb+srv://User:7gBwopfErUz16uqi@cluster0-s5mhj.mongodb.net
       console.log("Connection Successful!");
 
       let i = 0;
-      let baseDate=new Date('2019-01-06T13:00');
+      let baseDate=new Date('2019-06-01T13:00');
 
-      for (let i=0;i<1500;i++) {
+      for (let i=0;i<2000;i++) {
         // a document instance
-        var log1 = new Log({userID: "7364kdvnj", hiveID: "g4ssxt3", timestamp: new Date(baseDate.getTime() + (i*10*60000)), temperature: 35, humidity: 40, acoustics: 60, carbonDioxide:800});
-        var log2 = new Log({userID: "7364kdvnj", hiveID: "f4wfr43", timestamp: new Date(baseDate.getTime() + (i*10*60000)), temperature: 35, humidity: 40, acoustics: 60, carbonDioxide:800});
+        var log1 = new Log({userID: "7364kdvnj", hiveID: "g4ssxt3", timestamp: new Date(baseDate.getTime() + (i*15*60000)), temperature: 35, humidity: 40, acoustics: 60, carbonDioxide:800});
+        var log2 = new Log({userID: "7364kdvnj", hiveID: "f4wfr43", timestamp: new Date(baseDate.getTime() + (i*15*60000)), temperature: 35, humidity: 40, acoustics: 60, carbonDioxide:800});
 
         i = i + 1
 
@@ -43,4 +43,3 @@ mongoose.connect("mongodb+srv://User:7gBwopfErUz16uqi@cluster0-s5mhj.mongodb.net
         });
       }
   });
-

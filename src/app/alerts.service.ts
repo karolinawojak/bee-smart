@@ -19,6 +19,7 @@ export class AlertsService {
   getAlerts() {
     let date: Date;
     let month: number;
+    let day: number;
     let content: string;
     let value: number;
     let hive: string;
@@ -30,29 +31,47 @@ export class AlertsService {
 
         // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < this.statList.length; i++) {
-          date = new Date(this.statList[i].timestamp);
-          month = date.getTime();
-          console.log('Month: ');
-          console.log(month);
           hive = this.statList[i].hiveID;
+          date = new Date(this.statList[i].timestamp);
+          month = date.getMonth() + 1;
+          day = date.getDate();
 
           value = this.statList[i].temperature;
-          if (value < 35) {
-            content = 'Temperatura za niska';
-            this.alertList.unshift({date, content, value, hive});
-          } else if (this.statList[i].temperature > 35) {
-            content = 'Temperatura za wysoka';
-            this.alertList.unshift({date, content, value, hive});
-            console.log(month);
+          if (month >= 3 && month <= 9) {
+            if (value < 35) {
+              content = 'Temperatura za niska';
+              this.alertList.unshift({date, content, value, hive});
+            } else if (value > 35) {
+              content = 'Temperatura za wysoka';
+              this.alertList.unshift({date, content, value, hive});
+            }
+          } else {
+            if (value < 25) {
+              content = 'Temperatura za niska';
+              this.alertList.unshift({date, content, value, hive});
+            } else if (value > 25) {
+              content = 'Temperatura za wysoka';
+              this.alertList.unshift({date, content, value, hive});
+            }
           }
 
           value = this.statList[i].humidity;
-          if (value < 40) {
-            content = 'Wilogtność za niska';
-            this.alertList.unshift({date, content, value, hive});
-          } else if (this.statList[i].humidity > 40) {
-            content = 'Wilgotność za wysoka';
-            this.alertList.unshift({date, content, value, hive});
+          if (month >= 3 && month <= 9) {
+            if (value < 40) {
+              content = 'Wilogtność za niska';
+              this.alertList.unshift({date, content, value, hive});
+            } else if (value > 40) {
+              content = 'Wilgotność za wysoka';
+              this.alertList.unshift({date, content, value, hive});
+            }
+          } else {
+            if (value < 70 ) {
+              content = 'Wilogtność za niska';
+              this.alertList.unshift({date, content, value, hive});
+            } else if (value > 70) {
+              content = 'Wilgotność za wysoka';
+              this.alertList.unshift({date, content, value, hive});
+            }
           }
 
           value = this.statList[i].carbonDioxide;
