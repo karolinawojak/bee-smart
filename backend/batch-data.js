@@ -43,3 +43,4 @@ mongoose.connect("mongodb+srv://User:7gBwopfErUz16uqi@cluster0-s5mhj.mongodb.net
         });
       }
   });
+  //{timestamp: {$gte: ISODate("2019-06-22")}}
