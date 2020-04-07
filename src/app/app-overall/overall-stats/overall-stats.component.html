@@ -6,7 +6,7 @@
       <div class="info">
         <div class="chart">
           <canvas baseChart
-              [datasets]="lineChartData"
+              [datasets]="hive.chartData"
               [labels]="lineChartLabels"
               [options]="lineChartOptions"
               [legend]="lineChartLegend"
@@ -16,29 +16,29 @@
         <div class="summaric-data">
           <div class="hive-data">
             <p class="stat-name">Temperatura</p>
-            <p><span>Maksymalna: </span>{{ hive.temperature }}</p>
-            <p><span>Minimalna: </span>{{ hive.temperature }}</p>
+            <p><span>Maksymalna: </span>{{ hive.maxTemp }}</p>
+            <p><span>Minimalna: </span>{{ hive.minTemp }}</p>
           </div>
           <div class="chart">
           </div>
           <div class="hive-data">
             <p class="stat-name">Wilgotność</p>
-            <p><span>Maksymalna: </span>{{ hive.humidity }}</p>
-            <p><span>Minimalna: </span>{{ hive.humidity }}</p>
+            <p><span>Maksymalna: </span>{{ hive.maxHum }}</p>
+            <p><span>Minimalna: </span>{{ hive.minHum }}</p>
           </div>
           <div class="chart">
           </div>
           <div class="hive-data">
             <p class="stat-name">Akustyka</p>
-            <p><span>Maksymalna: </span>{{ hive.acoustics }}</p>
-            <p><span>Minimalna: </span>{{ hive.acoustics }}</p>
+            <p><span>Maksymalna: </span>{{ hive.minAcous }}</p>
+            <p><span>Minimalna: </span>{{ hive.maxAcous }}</p>
           </div>
           <div class="chart">
           </div>
           <div class="hive-data">
             <p class="stat-name">Dwutlenek węgla</p>
-            <p><span>Maksymalna: </span>{{ hive.carbonDioxide }}</p>
-            <p><span>Minimalna: </span>{{ hive.carbonDioxide }}</p>
+            <p><span>Maksymalna: </span>{{ hive.minCarbon }}</p>
+            <p><span>Minimalna: </span>{{ hive.maxCarbon }}</p>
           </div>
         </div>
       </div>
