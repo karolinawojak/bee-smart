@@ -1,0 +1,8 @@
+<article>
+  <h2>Logowanie</h2>
+  <form>
+    <input type="text" id="username" placeholder="Login" [(ngModel)]="username" name="username" required autocomplete="off">
+    <input type="password" id="password" placeholder="Hasło" [(ngModel)]="password" name="password" required autocomplete="off">
+    <button (click)="login()">Zaloguj</button>
+  </form>
+</article>

@@ -6,9 +6,11 @@ import { TodayMainComponent } from './app-today/today-main/today-main.component'
 import { OverallMainComponent } from './app-overall/overall-main/overall-main.component';
 import { AlertsMainComponent } from './app-alerts/alerts-main/alerts-main.component';
 import { PersonalMainComponent } from './app-personal/personal-main/personal-main.component';
+import { LoginMainComponent } from './app-login/login-main/login-main.component';
 
 const routes: Routes = [
-  { path: '', component:  HomeMainComponent },
+  { path: '', component:  LoginMainComponent },
+  { path: 'home', component:  HomeMainComponent },
   { path: 'today', component:  TodayMainComponent },
   { path: 'overall', component:  OverallMainComponent },
   { path: 'alerts', component:  AlertsMainComponent },
