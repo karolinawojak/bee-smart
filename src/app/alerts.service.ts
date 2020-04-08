@@ -19,7 +19,6 @@ export class AlertsService {
   getAlerts() {
     let date: Date;
     let month: number;
-    let day: number;
     let content: string;
     let value: number;
     let hive: string;
@@ -34,7 +33,6 @@ export class AlertsService {
           hive = this.statList[i].hiveID;
           date = new Date(this.statList[i].timestamp);
           month = date.getMonth() + 1;
-          day = date.getDate();
 
           value = this.statList[i].temperature;
           if (month >= 3 && month <= 9) {

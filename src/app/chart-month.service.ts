@@ -12,6 +12,10 @@ export class ChartMonthService {
   private userData: User[] = [];
   private hives = [];
   private statList: HiveData[] = [];
+  private temperatureDailyList = [];
+  private humidityDailyList = [];
+  private acousticsDailyList = [];
+  private carbonDioxideDailyList = [];
   private temperatureList = [];
   private humidityList = [];
   private acousticsList = [];
@@ -36,6 +40,17 @@ export class ChartMonthService {
     let humidity: number;
     let acoustics: number;
     let carbonDioxide: number;
+    let date: Date;
+    let day: number;
+    let currentDay: number;
+    let totalTemp: number;
+    let totalHum: number;
+    let totalAcc: number;
+    let totalCarb: number;
+    let avgTemp = 0;
+    let avgHum = 0;
+    let avgAcc = 0;
+    let avgCarb = 0;
 
     this._http.get<User[]>('http://localhost:3000/api/personal')
       .subscribe((personalData) => {
@@ -50,6 +65,9 @@ export class ChartMonthService {
     this._http.get<HiveData[]>('http://localhost:3000/api/monthly-stats')
       .subscribe((hiveData) => {
         this.statList = hiveData;
+        date = new Date(this.statList[0].timestamp);
+        day = date.getDate();
+        currentDay = day;
 
         for (let hive of this.hives) {
           // tslint:disable-next-line: prefer-for-of
@@ -59,23 +77,56 @@ export class ChartMonthService {
               humidity = this.statList[i].humidity;
               acoustics = this.statList[i].acoustics;
               carbonDioxide = this.statList[i].carbonDioxide;
+              date = new Date(this.statList[i].timestamp);
+              day = date.getDate();
 
-              this.temperatureList.push(temperature);
-              this.humidityList.push(humidity);
-              this.acousticsList.push(acoustics);
-              this.carbonDioxideList.push(carbonDioxide / 10);
+              if (currentDay == day) {
+                this.temperatureDailyList.push(temperature);
+                this.humidityDailyList.push(humidity);
+                this.acousticsDailyList.push(acoustics);
+                this.carbonDioxideDailyList.push(carbonDioxide / 10);
+                continue;
+              }
 
-              this.minTemperature = Math.min.apply(null, this.temperatureList);
-              this.maxTemperature = Math.max.apply(null, this.temperatureList);
-              this.minHumidity = Math.min.apply(null, this.humidityList);
-              this.maxHumidity = Math.max.apply(null, this.humidityList);
-              this.minAcoustics = Math.min.apply(null, this.acousticsList);
-              this.maxAcoustics = Math.max.apply(null, this.acousticsList);
-              this.minCarbonDioxide = Math.min.apply(null, this.carbonDioxideList) * 10;
-              this.maxCarbonDioxide = Math.max.apply(null, this.carbonDioxideList) * 10;
+              currentDay = day;
 
+              totalTemp = 0;
+              totalHum = 0;
+              totalAcc = 0;
+              totalCarb = 0;
+              // tslint:disable-next-line: prefer-for-of
+              for (let i = 0; i < this.temperatureDailyList.length; i++) {
+                totalTemp += this.temperatureDailyList[i];
+                totalHum += this.humidityDailyList[i];
+                totalAcc += this.acousticsDailyList[i];
+                totalCarb += this.carbonDioxideDailyList[i];
+              }
+
+              avgTemp = totalTemp / this.temperatureDailyList.length;
+              avgHum = totalHum / this.humidityDailyList.length;
+              avgAcc = totalAcc / this.acousticsDailyList.length;
+              avgCarb = totalCarb / this.carbonDioxideDailyList.length;
+
+              this.temperatureList.push(avgTemp);
+              this.humidityList.push(avgHum);
+              this.acousticsList.push(avgAcc);
+              this.carbonDioxideList.push(avgCarb);
+
+              this.temperatureDailyList = [];
+              this.humidityDailyList = [];
+              this.acousticsDailyList = [];
+              this.carbonDioxideDailyList = [];
             }
           }
+          this.minTemperature = Math.min.apply(null, this.temperatureList);
+          this.maxTemperature = Math.max.apply(null, this.temperatureList);
+          this.minHumidity = Math.min.apply(null, this.humidityList);
+          this.maxHumidity = Math.max.apply(null, this.humidityList);
+          this.minAcoustics = Math.min.apply(null, this.acousticsList);
+          this.maxAcoustics = Math.max.apply(null, this.acousticsList);
+          this.minCarbonDioxide = Math.min.apply(null, this.carbonDioxideList) * 10;
+          this.maxCarbonDioxide = Math.max.apply(null, this.carbonDioxideList) * 10;
+
           this.chartList.push(this.temperatureList);
           this.chartList.push(this.humidityList);
           this.chartList.push(this.acousticsList);
