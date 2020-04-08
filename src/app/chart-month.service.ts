@@ -69,10 +69,11 @@ export class ChartMonthService {
         day = date.getDate();
         currentDay = day;
 
+        // tslint:disable-next-line: prefer-const
         for (let hive of this.hives) {
           // tslint:disable-next-line: prefer-for-of
           for (let i = 0; i < this.statList.length; i++) {
-            if (hive == this.statList[i].hiveID) {
+            if (hive === this.statList[i].hiveID) {
               temperature = this.statList[i].temperature;
               humidity = this.statList[i].humidity;
               acoustics = this.statList[i].acoustics;
@@ -80,7 +81,7 @@ export class ChartMonthService {
               date = new Date(this.statList[i].timestamp);
               day = date.getDate();
 
-              if (currentDay == day) {
+              if (currentDay === day) {
                 this.temperatureDailyList.push(temperature);
                 this.humidityDailyList.push(humidity);
                 this.acousticsDailyList.push(acoustics);
@@ -94,7 +95,9 @@ export class ChartMonthService {
               totalHum = 0;
               totalAcc = 0;
               totalCarb = 0;
+
               // tslint:disable-next-line: prefer-for-of
+              // tslint:disable-next-line: no-shadowed-variable
               for (let i = 0; i < this.temperatureDailyList.length; i++) {
                 totalTemp += this.temperatureDailyList[i];
                 totalHum += this.humidityDailyList[i];
@@ -102,10 +105,10 @@ export class ChartMonthService {
                 totalCarb += this.carbonDioxideDailyList[i];
               }
 
-              avgTemp = totalTemp / this.temperatureDailyList.length;
-              avgHum = totalHum / this.humidityDailyList.length;
-              avgAcc = totalAcc / this.acousticsDailyList.length;
-              avgCarb = totalCarb / this.carbonDioxideDailyList.length;
+              avgTemp = parseFloat((totalTemp / this.temperatureDailyList.length).toFixed(2));
+              avgHum = parseFloat((totalHum / this.humidityDailyList.length).toFixed(2));
+              avgAcc = parseFloat((totalAcc / this.acousticsDailyList.length).toFixed(2));
+              avgCarb = parseFloat((totalCarb / this.carbonDioxideDailyList.length).toFixed(1));
 
               this.temperatureList.push(avgTemp);
               this.humidityList.push(avgHum);
@@ -157,6 +160,7 @@ export class ChartMonthService {
           this.chartList = [];
         }
         this.chartDataUpdated.next([...this.chartData]);
+        this.chartData = [];
       });
   }
 

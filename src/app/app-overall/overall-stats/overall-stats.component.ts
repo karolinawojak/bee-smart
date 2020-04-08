@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HiveData } from '../../hiveData.model';
 import { ChartMonthService } from '../../chart-month.service';
 import { ChartsModule } from 'ng2-charts';
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['../overall-main/overall-main.component.scss']
 })
 
-export class OverallStatsComponent implements OnInit {
+export class OverallStatsComponent implements OnInit, OnDestroy {
 
   statList = [];
   private statSubscription: Subscription;
@@ -35,5 +35,9 @@ export class OverallStatsComponent implements OnInit {
       .subscribe((stats) => {
         this.statList = stats;
       });
+  }
+
+  ngOnDestroy() {
+    this.statSubscription.unsubscribe();
   }
 }
