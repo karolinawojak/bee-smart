@@ -37,7 +37,7 @@ expressApp.get('/api/personal', (request, response, next) => {
     });
 });
 
-expressApp.use('/api/stats', (request, response, next) => {
+expressApp.get('/api/stats', (request, response, next) => {
   Log.find({"timestamp": {$gte: new Date(2019,thisMonth-1,dayOfMonth-1,2,0,0).toISOString()}})
   .sort({timestamp: 1})
     .then(documents => {
@@ -45,7 +45,7 @@ expressApp.use('/api/stats', (request, response, next) => {
     });
 });
 
-expressApp.use('/api/today-stats', (request, response, next) => {
+expressApp.get('/api/today-stats', (request, response, next) => {
   Log.find({"timestamp": {$gte: new Date(2019,thisMonth-1,dayOfMonth,2,0,0).toISOString()}})
   .sort({timestamp: 1})
     .then(documents => {
@@ -53,12 +53,22 @@ expressApp.use('/api/today-stats', (request, response, next) => {
     });
 });
 
-expressApp.use('/api/monthly-stats', (request, response, next) => {
+expressApp.get('/api/monthly-stats', (request, response, next) => {
   Log.find({"timestamp": {$gte: new Date(2019,thisMonth-1,1,2,0,0).toISOString()}})
   .sort({timestamp: 1})
     .then(documents => {
       response.status(200).json(documents);
     });
+});
+
+expressApp.put('/api/personal/', (request, response, next) => {
+  const user = new User({
+    id: request.body.id,
+    password: request.body.password,
+  })
+  User.updateOne({id: request.params.id}, {$set: { "password" : "aa" }})
+  console.log(id);
+  console.log(user);
 });
 
 module.exports = expressApp;

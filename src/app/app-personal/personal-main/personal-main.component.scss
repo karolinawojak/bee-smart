@@ -27,7 +27,7 @@ input[type=password], input[type=text] {
   width: 300px;
 }
 
-input[type=submit] {
+button {
   background-color: lighten($main-color, 20%);
   border: 1px solid $main-color;
   padding: 10px 30px;

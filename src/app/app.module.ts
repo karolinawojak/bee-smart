@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +25,6 @@ import { AlertsListComponent } from './app-alerts/alerts-list/alerts-list.compon
 import { PersonalMainComponent } from './app-personal/personal-main/personal-main.component';
 import { PersonalVisitComponent } from './app-personal/personal-visit/personal-visit.component';
 import { PersonalCredentialsComponent } from './app-personal/personal-credentials/personal-credentials.component';
-import { PersonalAddComponent } from './app-personal/personal-add/personal-add.component';
 import { PersonalHivesComponent } from './app-personal/personal-hives/personal-hives.component';
 
 import { LoginMainComponent } from './app-login/login-main/login-main.component';
@@ -51,7 +50,6 @@ registerLocaleData(localePl);
     PersonalMainComponent,
     PersonalVisitComponent,
     PersonalCredentialsComponent,
-    PersonalAddComponent,
     TodayStatsComponent,
     OverallStatsComponent,
     PersonalHivesComponent,
