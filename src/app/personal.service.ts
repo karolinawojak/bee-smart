@@ -26,11 +26,4 @@ export class PersonalService {
   personalStatsUpdateListener() {
     return this.personalStatsUpdated.asObservable();
   }
-
-  updatePersonalData( id: string, password: string ) {
-    const user: User = { _id: this.userData[0]._id,
-      id, password, firstVisit: this.userData[0].firstVisit,
-      lastVisit: this.userData[0].lastVisit, hives: this.userData[0].hives};
-    this._http.put('http://localhost:3000/api/personal', password);
-  }
 }

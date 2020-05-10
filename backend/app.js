@@ -20,13 +20,13 @@ mongoose.connect("mongodb+srv://User:7gBwopfErUz16uqi@cluster0-s5mhj.mongodb.net
   })
   .catch(() => {
     console.log("Connection failed")
-  });
+});
 
 //uses a middleware on an incoming request
 expressApp.use((request, response, next) => {
   response.setHeader("Access-Control-Allow-Origin", "*");
   response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  response.setHeader("Access-Control-Allow-Methods", "GET, PUT, OPTIONS");
   next();
 });
 
@@ -59,16 +59,6 @@ expressApp.get('/api/monthly-stats', (request, response, next) => {
     .then(documents => {
       response.status(200).json(documents);
     });
-});
-
-expressApp.put('/api/personal/', (request, response, next) => {
-  const user = new User({
-    id: request.body.id,
-    password: request.body.password,
-  })
-  User.updateOne({id: request.params.id}, {$set: { "password" : "aa" }})
-  console.log(id);
-  console.log(user);
 });
 
 module.exports = expressApp;

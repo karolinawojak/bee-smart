@@ -6,20 +6,21 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect("mongodb+srv://User:7gBwopfErUz16uqi@cluster0-s5mhj.mongodb.net/bee-smart?retryWrites=true&w=majority")
+let mongoAddress = "mongodb+srv://User:7gBwopfErUz16uqi@cluster0-s5mhj.mongodb.net/bee-smart?retryWrites=true&w=majority";
+mongoose.connect(mongoAddress)
   .then(() => {
     console.log("Connected");
   })
   .catch(() => {
     console.log("Connection failed")
-  });
+});
 
   var db = mongoose.connection;
 
-  db.on('error', console.error.bind(console, 'connection error:'));
+  db.on('error', console.error.bind(console, 'Connection error:'));
 
   db.once('open', function() {
-      console.log("Connection Successful!");
+      console.log("Connection successful");
 
       let i = 0;
       let baseDate=new Date('2019-06-01T13:00');
